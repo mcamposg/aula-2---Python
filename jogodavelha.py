@@ -32,35 +32,34 @@ ganho = [
         ]
 
 tabuleiro = []
-for linha in velha,splitlines():
+for linha in velha.splitlines():
     tabuleiro.append(list(linha))
 
-
-
-jogador = "x"  # Começa jogando com X
-jogando = true
-jogadas = 0  # Contador de jogadas - usado para saber se velhou
-
+jogador = "X" # Começa jogando com X
+jogando = True
+jogadas = 0 # Contador de jogadas - usado para saber se velhou
 while True:
     for t in tabuleiro:  # Imprime o tabuleiro
         print("".join(t))
     if not jogando:  # Termina após imprimir o último tabuleiro
         break
+
     if jogadas == 9:  # Se 9 jogadas foram feitas, todas as posições já foram preenchidas
         print("Deu velha! Ninguém ganhou.")
         break
-jogada = int(input("Digite a posição a jogar 1-9 (jogador %s):" % jogador))
-    if jogada<1 or jogada>9:
-        print("Posição inválida")
-        continue
 
-    if tabuleiro[posições[jogada][0]][posições[jogada][1]] != " ":   # Verifica se a posição está livre
-        print("Posição ocupada.");
-        continue
+    jogada = int(input("Digite a posição a jogar 1-9 (jogador %s):" % jogador))
+    if jogada<1 or jogada>9:
+            print("Posição inválida")
+            continue
+
+    if tabuleiro[posições[jogada][0]][posições[jogada][1]] != " ":  # Verifica se a posição está livre
+            print("Posição ocupada.");
+            continue
 
 tabuleiro[posições[jogada][0]][posições[jogada][1]] = jogador  # Marca a jogada para o jogador
 
-    for p in ganho:  # Verfica se ganhou
+for p in ganho:  # Verfica se ganhou
         for x in p:
             if tabuleiro[posições[x][0]][posições[x][1]] != jogador:
                break
@@ -70,4 +69,5 @@ tabuleiro[posições[jogada][0]][posições[jogada][1]] = jogador  # Marca a jog
             break
 
 jogador = "X" if jogador == "O" else "O" # Alterna jogador
-    jogadas +=1 # Contador de jogadas
+jogadas +=1 # Contador de jogadas
+
