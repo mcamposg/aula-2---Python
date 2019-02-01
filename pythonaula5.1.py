@@ -31,7 +31,7 @@ ret = Retangulo(3, 4)
 
 ret2 = Retangulo(4, 5)
 print(ret2.diagonal())
-ret2.altura = 9
+ret2.altura = 8
 print(ret2.diagonal())
 
 quad2 = Quadrado(2)
